@@ -1,12 +1,17 @@
 <script setup>
+//import the component from child
 import Display from './components/Display.vue'
+//import reactive variable: Use ref() when the value can change while the user is using the app
 import { ref } from 'vue'
+//set initial value of ref
 const DisplayValue = ref(0)
 
+//press event functionality: add value to the display value
 function press(value) {
   DisplayValue.value += value
 }
 
+//clear event functionality: clear the displayValue
 function clear() {
   DisplayValue.value = ''
 }
@@ -17,8 +22,7 @@ function clear() {
     <div class="card bg-base-100 shadow-xl w-full max-w-xs">
       <div class="card-body gap-4">
 
-        <!-- TODO: calculator display with **readonly** text input -->
-        <!-- Sample style: class="input input-lg w-full text-right font-mono text-xl" /> -->
+        <!-- set tailwind css styling and the value prop of the Display component -->
         <Display class="input input-lg w-full text-right font-mono text-xl" :value="DisplayValue" />
 
         <div class="grid grid-cols-4 gap-2">
