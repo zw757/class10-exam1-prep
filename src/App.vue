@@ -1,8 +1,14 @@
 <script setup>
+import Display from './components/Display.vue'
+import { ref } from 'vue'
+const DisplayValue = ref(0)
+
 function press(value) {
+  DisplayValue.value += value
 }
 
 function clear() {
+  DisplayValue.value = ''
 }
 </script>
 
@@ -13,6 +19,7 @@ function clear() {
 
         <!-- TODO: calculator display with **readonly** text input -->
         <!-- Sample style: class="input input-lg w-full text-right font-mono text-xl" /> -->
+        <Display class="input input-lg w-full text-right font-mono text-xl" :value="DisplayValue" />
 
         <div class="grid grid-cols-4 gap-2">
           <button class="btn btn-accent" @click="clear">C</button>
